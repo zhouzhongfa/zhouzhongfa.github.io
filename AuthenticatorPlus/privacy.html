@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>AuthenticatorPlus 隐私政策</title>
+  <style>
+    :root { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; color-scheme: light dark; }
+    body { margin: 0; background: Canvas; color: CanvasText; line-height: 1.75; }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1 { font-size: 32px; line-height: 1.25; margin-bottom: 8px; }
+    h2 { font-size: 20px; margin-top: 32px; }
+    .date, .note { color: #777; }
+    .note { border-left: 4px solid #635bdf; padding: 8px 14px; background: color-mix(in srgb, #635bdf 8%, Canvas); }
+    code { word-break: break-all; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>AuthenticatorPlus 隐私政策</h1>
+  <p class="date">更新日期：2026 年 8 月 2 日</p>
+  <p>AuthenticatorPlus（以下简称“本应用”）重视你的隐私。本政策说明本应用如何处理双重认证账户、密码及相关数据。</p>
+
+  <h2>1. 我们处理的数据</h2>
+  <p>本应用可由你主动保存双重认证服务名称、账户名称、验证密钥及参数，以及密码条目的名称、用户名、密码、网站和备注。这些内容用于提供验证码生成、密码管理、备份和同步功能。</p>
+  <p>当前版本不包含广告 SDK、第三方分析 SDK 或跨 App 跟踪功能，不要求注册开发者自建账号，也不会出售你的个人信息。</p>
+
+  <h2>2. 本地存储与加密</h2>
+  <p>验证码账户和密码条目保存在应用的加密 Vault 中，并使用 AES-256-GCM 在设备端加密。加密密钥存储于 iOS Keychain。验证码在设备本地计算生成。</p>
+
+  <h2>3. 相机与照片</h2>
+  <p>当你主动使用扫码或相册导入时，本应用会请求相机或照片访问权限。二维码识别在设备端完成，所选图像不会由本应用上传至开发者服务器。</p>
+
+  <h2>4. Face ID 与设备认证</h2>
+  <p>Face ID/设备密码应用锁默认关闭。当你主动开启应用锁时，本应用会调用 Apple 提供的 LocalAuthentication 接口进行身份验证。本应用不会取得或保存你的面容、指纹数据。</p>
+
+  <h2>5. iCloud 与 CloudKit</h2>
+  <p>iCloud 同步默认关闭，可由你自行选择开启。开启后，Vault 数据会先在设备端加密，再保存到与你 Apple 账户关联的私人 CloudKit 数据库；加密密钥通过 iCloud Keychain 在你的设备间同步。本应用不会将验证密钥或密码以明文写入 CloudKit。</p>
+  <p>iCloud、CloudKit 与 iCloud Keychain 由 Apple 提供，其数据处理还受 Apple 隐私政策及相关服务条款约束。关闭同步不会自动删除此前已写入 CloudKit 的加密数据。</p>
+
+  <h2>6. 剪贴板</h2>
+  <p>当你主动复制验证码、用户名或密码时，本应用使用仅限本机的系统剪贴板，并可根据你的设置为内容指定过期时间。</p>
+
+  <h2>7. 加密备份</h2>
+  <p>你可以主动导出 <code>.authplus</code> 加密备份。备份使用由你提供的密码派生密钥，并采用 AES-256-GCM 加密。开发者无法恢复你忘记的备份密码。</p>
+
+  <h2>8. 数据共享与保留</h2>
+  <p>当前版本没有开发者运营的业务服务器，不会向开发者上传验证码密钥、密码或二维码图片，也不会向广告商或数据经纪商共享这些内容。设备本地数据会保留至你在应用内删除或卸载应用；CloudKit 数据的保留和删除受你的操作及 Apple 服务机制影响。</p>
+
+  <h2>9. 儿童隐私</h2>
+  <p>本应用不以儿童为特定目标用户，也不会主动收集儿童个人信息。</p>
+
+  <h2>10. 政策变更</h2>
+  <p>如果未来版本加入订阅、分析、广告、账号系统或其他会改变数据处理方式的功能，我们会在功能上线前更新本政策及 App Store 隐私信息。</p>
+
+  <h2>11. 联系方式</h2>
+  <p>如对本隐私政策有疑问，请访问 <a href="index.html">AuthenticatorPlus App 支持页面</a>，或通过 <a href="https://github.com/zhouzhongfa/">开发者 GitHub 页面</a> 联系。</p>
+</main>
+</body>
+</html>
