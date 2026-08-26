@@ -9,55 +9,68 @@
     :root { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; color-scheme: light dark; }
     body { margin: 0; background: Canvas; color: CanvasText; line-height: 1.75; }
     main { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-    h1 { font-size: 32px; line-height: 1.25; margin-bottom: 8px; }
-    h2 { font-size: 20px; margin-top: 32px; }
-    .date, .note { color: #777; }
-    .note { border-left: 4px solid #635bdf; padding: 8px 14px; background: color-mix(in srgb, #635bdf 8%, Canvas); }
-    code { word-break: break-all; }
+    h1 { font-size: 32px; margin-bottom: 6px; }
+    h2 { margin-top: 34px; font-size: 20px; }
+    .muted { color: #777; }
+    a { color: #635bdf; overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
 <main>
   <h1>AuthenticatorPlus 隐私政策</h1>
-  <p class="date">更新日期：2026 年 8 月 2 日</p>
-  <p>AuthenticatorPlus（以下简称“本应用”）重视你的隐私。本政策说明本应用如何处理双重认证账户、密码及相关数据。</p>
+  <p class="muted">更新日期：2026 年 8 月 26 日</p>
 
-  <h2>1. 我们处理的数据</h2>
+  <p>AuthenticatorPlus（以下简称“本应用”）重视你的隐私。本政策说明本应用如何处理双重认证账户、密码、订阅信息和统计数据。</p>
+
+  <h2>1. 你保存的敏感内容</h2>
   <p>本应用可由你主动保存双重认证服务名称、账户名称、验证密钥及参数，以及密码条目的名称、用户名、密码、网站和备注。这些内容用于提供验证码生成、密码管理、备份和同步功能。</p>
-  <p>当前版本不包含广告 SDK、第三方分析 SDK 或跨 App 跟踪功能，不要求注册开发者自建账号，也不会出售你的个人信息。</p>
+  <p>这些敏感内容默认保存在设备上的加密 Vault 中。开发者和友盟统计不会收集你的验证码、验证密钥、密码、用户名、网站地址、二维码内容、备份内容或备份密码。</p>
 
   <h2>2. 本地存储与加密</h2>
-  <p>验证码账户和密码条目保存在应用的加密 Vault 中，并使用 AES-256-GCM 在设备端加密。加密密钥存储于 iOS Keychain。验证码在设备本地计算生成。</p>
+  <p>验证码账户和密码条目使用 AES-256-GCM 在设备端加密，设备 Vault 密钥保存于 iOS Keychain。动态验证码在设备本地计算生成。</p>
+  <p>请妥善保护设备密码、Apple 账户和备份密码。删除应用、遗失设备或忘记备份密码可能导致数据无法恢复。</p>
 
   <h2>3. 相机与照片</h2>
-  <p>当你主动使用扫码或相册导入时，本应用会请求相机或照片访问权限。二维码识别在设备端完成，所选图像不会由本应用上传至开发者服务器。</p>
+  <p>当你主动使用扫码或相册导入时，本应用会请求相机权限或调用系统照片选择器。二维码识别在设备端完成，所选图像不会由本应用上传至开发者服务器或友盟。</p>
 
   <h2>4. Face ID 与设备认证</h2>
-  <p>Face ID/设备密码应用锁默认关闭。当你主动开启应用锁时，本应用会调用 Apple 提供的 LocalAuthentication 接口进行身份验证。本应用不会取得或保存你的面容、指纹数据。</p>
+  <p>当你开启应用锁时，本应用调用 Apple 的 LocalAuthentication 接口进行验证。本应用不会取得或保存你的面容、指纹或设备密码。</p>
 
   <h2>5. iCloud 与 CloudKit</h2>
-  <p>iCloud 同步默认关闭，可由你自行选择开启。开启后，Vault 数据会先在设备端加密，再保存到与你 Apple 账户关联的私人 CloudKit 数据库；加密密钥通过 iCloud Keychain 在你的设备间同步。本应用不会将验证密钥或密码以明文写入 CloudKit。</p>
-  <p>iCloud、CloudKit 与 iCloud Keychain 由 Apple 提供，其数据处理还受 Apple 隐私政策及相关服务条款约束。关闭同步不会自动删除此前已写入 CloudKit 的加密数据。</p>
+  <p>iCloud 同步由你主动开启，并且需要有效订阅。开启后，敏感条目会先在设备端加密，再保存到与你 Apple 账户关联的私人 CloudKit 数据库；同步加密密钥通过 iCloud Keychain 在你的设备间传递。本应用不会将验证密钥或密码以明文写入 CloudKit。</p>
+  <p>iCloud、CloudKit 与 iCloud Keychain 由 Apple 提供，其数据处理受 Apple 隐私政策及服务条款约束。关闭同步不会自动删除此前写入 CloudKit 的加密数据。</p>
 
-  <h2>6. 剪贴板</h2>
-  <p>当你主动复制验证码、用户名或密码时，本应用使用仅限本机的系统剪贴板，并可根据你的设置为内容指定过期时间。</p>
+  <h2>6. 订阅与匿名会员标识</h2>
+  <p>本应用提供由 Apple StoreKit 处理的自动续订服务。为了查询订阅商品、验证购买、恢复购买及提供权益，本应用会生成随机 UUID 并保存于 iOS Keychain，作为匿名会员标识。</p>
+  <p>购买或恢复时，匿名会员标识、Apple 交易 ID、由 StoreKit 提供的签名交易凭证和订阅状态会发送至订阅服务器 <code>www.yxklj.xyz</code>。开发者不会因此获得你的 Apple ID、姓名、邮箱、支付卡号、验证码密钥或密码内容。付款、退款和订阅管理由 Apple 处理，并受 Apple 的隐私政策和服务条款约束。</p>
 
-  <h2>7. 加密备份</h2>
-  <p>你可以主动导出 <code>.authplus</code> 加密备份。备份使用由你提供的密码派生密钥，并采用 AES-256-GCM 加密。开发者无法恢复你忘记的备份密码。</p>
+  <h2>7. 友盟统计分析</h2>
+  <p>为了了解功能使用情况并改进产品，本应用集成友盟统计分析 SDK。应用会向友盟发送匿名会员标识、设备与应用基础信息，以及不含敏感内容的功能事件，例如 App 启动、页面入口、添加方式、条目数量、订阅结果、同步或备份是否成功。</p>
+  <p>本应用不会将验证码、验证密钥、密码、账户名称、用户名、网站地址、二维码内容或备份内容作为统计事件或属性发送。统计数据仅用于产品分析，不用于广告投放或跨 App 跟踪。</p>
+  <p>友盟隐私政策：<a href="https://www.umeng.com/page/policy">https://www.umeng.com/page/policy</a></p>
 
-  <h2>8. 数据共享与保留</h2>
-  <p>当前版本没有开发者运营的业务服务器，不会向开发者上传验证码密钥、密码或二维码图片，也不会向广告商或数据经纪商共享这些内容。设备本地数据会保留至你在应用内删除或卸载应用；CloudKit 数据的保留和删除受你的操作及 Apple 服务机制影响。</p>
+  <h2>8. 剪贴板</h2>
+  <p>当你主动复制验证码、用户名、网站或密码时，本应用使用仅限本机的系统剪贴板，并可根据你的设置指定过期时间。剪贴板仍属于系统共享资源，请避免在不受信任的应用中粘贴敏感信息。</p>
 
-  <h2>9. 儿童隐私</h2>
-  <p>本应用不以儿童为特定目标用户，也不会主动收集儿童个人信息。</p>
+  <h2>9. 加密备份</h2>
+  <p>你可以主动导入或在订阅有效时导出 <code>.authplus</code> 加密备份。备份使用由你提供的密码派生密钥，并采用 PBKDF2-HMAC-SHA256 与 AES-256-GCM 加密。备份文件的保存位置、传输和访问权限由你管理，开发者无法恢复你忘记的备份密码。</p>
 
-  <h2>10. 政策变更</h2>
-  <p>如果未来版本加入订阅、分析、广告、账号系统或其他会改变数据处理方式的功能，我们会在功能上线前更新本政策及 App Store 隐私信息。</p>
+  <h2>10. 数据共享与保留</h2>
+  <p>开发者不会出售你的个人信息，也不包含广告或跨 App 跟踪。匿名订阅和统计数据会按照提供服务、排查问题、履行法律义务及第三方服务政策所需的期限保留。设备本地数据会保留至你在应用内删除或卸载应用；CloudKit 数据的保留和删除受你的操作及 Apple 服务机制影响。</p>
 
-  <h2>11. 联系方式</h2>
-  <p>如对本隐私政策有疑问，请访问 <a href="index.html">AuthenticatorPlus App 支持页面</a>，或发送邮件至 <a href="mailto:compass_ai@163.com">compass_ai@163.com</a>。</p>
+  <h2>11. 儿童隐私</h2>
+  <p>本应用不以儿童为特定目标用户，也不会主动收集儿童的敏感业务内容。</p>
 
-  <p class="date">© 2026 Zhou Zhong Fa</p>
+  <h2>12. 你的选择</h2>
+  <p>你可以选择不启用 iCloud 同步、不购买订阅，并可在 App Store 账户设置中取消自动续订。你可以在应用内删除验证码和密码条目，或卸载应用清除设备本地数据。如需咨询匿名订阅或统计数据，请通过下方联系方式联系我们。</p>
+
+  <h2>13. 政策变更</h2>
+  <p>如果未来版本的数据处理方式发生变化，我们会在功能上线前更新本政策及 App Store 隐私信息。</p>
+
+  <h2>14. 联系方式</h2>
+  <p>邮箱：<a href="mailto:compass_ai@163.com">compass_ai@163.com</a></p>
+  <p>App 支持：<a href="https://zhouzhongfa.github.io/AuthenticatorPlus/">https://zhouzhongfa.github.io/AuthenticatorPlus/</a></p>
+  <p class="muted">© 2026 Zhou Zhong Fa</p>
 </main>
 </body>
 </html>

@@ -13,40 +13,49 @@
     h2 { margin-top: 32px; font-size: 20px; }
     .muted { color: #777; }
     .card { padding: 18px; border-radius: 14px; background: color-mix(in srgb, #635bdf 8%, Canvas); }
-    code { word-break: break-all; }
+    a { color: #635bdf; overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
 <main>
   <h1>AuthenticatorPlus 支持</h1>
-  <p class="muted">双重认证验证器与加密密码管理工具</p>
+  <p class="muted">双重认证验证器、密码管理与加密同步</p>
 
   <h2>常见问题</h2>
   <h3>如何添加验证码账户？</h3>
   <p>打开“验证码”页面，点击右上角“+”，然后扫描二维码、从相册选择二维码，或手动输入服务名称、账户和 Base32 密钥。</p>
 
-  <h3>是否支持 Google Authenticator？</h3>
+  <h3>是否支持 Google Authenticator 迁移？</h3>
   <p>支持标准 TOTP/HOTP 账户，并支持识别 Google Authenticator 迁移二维码。如果迁移包含多个二维码，请按页面提示依次扫描。</p>
+
+  <h3>免费版可以保存多少内容？</h3>
+  <p>验证码和密码分别提供 3 个免费名额。订阅到期不会删除已有数据，已有条目仍可查看和管理。</p>
+
+  <h3>如何管理或取消订阅？</h3>
+  <p>打开 App 的“设置”页面查看订阅入口，或前往 iOS“设置”→ Apple 账户 →“订阅”管理 AuthenticatorPlus Pro。取消后仍可使用至当前付费周期结束。</p>
+
+  <h3>如何恢复购买？</h3>
+  <p>在订阅页面或“设置”中点击“恢复购买”。请确认设备登录了购买订阅时使用的 Apple 账户。</p>
 
   <h3>如何开启 Face ID？</h3>
   <p>Face ID/设备密码应用锁默认关闭。请打开“设置”，开启“使用 Face ID 或设备密码”。</p>
 
   <h3>如何使用 iCloud 同步？</h3>
-  <p>确保设备已登录 iCloud，然后在“设置”中开启“iCloud 同步”。数据会先在设备端使用 AES-256-GCM 加密，再写入你的私人 CloudKit 数据库。</p>
+  <p>iCloud 同步需要有效订阅。确保设备已登录 iCloud，然后在“设置”中开启“iCloud 同步”。数据会先在设备端使用 AES-256-GCM 加密，再写入你的私人 CloudKit 数据库。</p>
 
   <h3>删除 App 后还能恢复数据吗？</h3>
-  <p>如果没有开启 iCloud 同步或导出加密备份，删除 App 可能导致本地数据无法恢复。建议定期导出加密备份，并妥善保存备份密码。</p>
+  <p>如果没有开启 iCloud 同步或导出加密备份，删除 App 可能导致本地数据无法恢复。建议在订阅有效时定期导出加密备份，并妥善保存备份密码。</p>
 
   <h2>联系支持</h2>
   <div class="card">
     <p>如需帮助，请发送邮件至：</p>
     <p><a href="mailto:compass_ai@163.com">compass_ai@163.com</a></p>
-    <p>联系时建议附上 iOS 版本、App 版本、问题操作步骤和错误截图，但不要发送真实验证码密钥、密码或未打码的二维码。</p>
+    <p>联系时建议附上 iOS 版本、App 版本、问题步骤和错误截图，但不要发送真实验证码密钥、密码或未打码的二维码。</p>
   </div>
 
-  <h2>隐私政策</h2>
-  <p><a href="privacy.html">查看 AuthenticatorPlus 隐私政策</a></p>
-
+  <h2>法律与隐私</h2>
+  <p><a href="privacy.html">隐私政策</a></p>
+  <p><a href="terms.html">服务条款</a></p>
   <p class="muted">© 2026 Zhou Zhong Fa</p>
 </main>
 </body>
